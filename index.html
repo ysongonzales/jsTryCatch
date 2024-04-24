@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Try Catch Activity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div>
+    <h2>JavaScript Try Catch Activity</h2>
+    <br>
+    <h5>Write a JavaScript function called divideNumbers that takes two parameters: numerator and denominator. Inside the function, use a try block to divide the numerator by the denominator. If the division is successful, return the result. If there's an error (such as division by zero), use a catch block to catch the error and throw a custom error message indicating that the division cannot be performed.</h5>
+   <br>
+   <br>
+   <br>
+  <label for="numerator">Numerator</label>
+  <input class="num" type="number" id="numerator">
+  <br>
+  <br>
+  <label for="denominator">Denominator</label>
+  <input class="deno" type="number" id="denominator">
+  <br>
+  <br>
+  <button class="sub" onclick="enter()">Submit</button>
+  <p class="res" id="result"></p>
+</div>
+<script>
+
+   function divideNumbers(numerator, denominator) {
+     try{
+        if (denominator === 0) {
+            throw "Division by zero is not allowed!"
+        }
+        return numerator / denominator
+     } catch (error) {
+        throw new Error(error);
+     }
+   } 
+
+   function enter() {
+    const numerator = parseFloat(document.getElementById('numerator').value);
+    const denominator = parseFloat(document.getElementById('denominator').value);
+    try {
+        const result = divideNumbers(numerator, denominator);
+        document.getElementById('result').textContent = result;
+    } catch (error) {
+        document.getElementById('result').textContent = error.message;
+    }
+   }
+
+</script>
+
+</body>
+</body>
+</html>
